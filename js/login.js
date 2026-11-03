@@ -20,20 +20,14 @@ async function verificarRolYRedirigir(user) {
 
     if (correosProfesores.includes(emailIngresado)) {
         localStorage.setItem('rolUsuario', 'profesor');
+         alert('¡Bienvenido/a Profesor/a!\nCuenta: ' + user.email);
     } else {
         localStorage.setItem('rolUsuario', 'alumno');
+         alert('¡Bienvenido/a Alumno/a!\nCuenta: ' + user.email);
     }
 
-    // El saludo no es un alert: se guarda y lo muestra como banner la página a la que vamos (js/header.js)
-    try { sessionStorage.setItem('tptBienvenida', JSON.stringify({ rol: localStorage.getItem('rolUsuario'), email: user.email })); } catch (e) { /* sin saludo */ }
-
-    // Redirección compatible con GitHub Pages y Localhost
-    const esGitHub = window.location.hostname.includes('github.io');
-    const repoNombre = 'TPT---actualizacion--BBDD';
-
-    window.location.href = esGitHub
-        ? `/${repoNombre}/index.html`
-        : './index.html';
+    // Redirección relativa: va al index.html que está junto a login.html (funciona en cualquier repositorio)
+    window.location.href = new URL('index.html', window.location.href).href;
 }
 
 // --- INICIO DE SESIÓN CON CORREO Y CONTRASEÑA ---
