@@ -1,0 +1,214 @@
+/* =========================================
+   PANEL DOCENTE - ESTILOS PROFESIONALES
+========================================= */
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.dashboard-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 15px;
+}
+
+.dashboard-header h2 {
+    font-size: 2rem;
+    color: var(--color-texto);
+    margin-bottom: 5px;
+}
+
+.dashboard-header p {
+    color: var(--color-texto-suave);
+    font-size: 1.1rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+/* Tarjetas Base */
+.dashboard-card {
+    background: var(--color-gris-claro);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--color-borde);
+    overflow: hidden;
+}
+
+.card-header {
+    background: var(--color-fondo-header);
+    padding: 20px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.card-header h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.25rem;
+    color: var(--color-primario);
+}
+
+.card-header p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-texto-suave);
+}
+
+.warning-header {
+    background: #fffbf0;
+    border-bottom: 1px solid #ffecb3;
+}
+
+.warning-header h3 { color: #b7791f; }
+
+/* Formularios Modernos */
+.modern-form { padding: 20px; }
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-texto);
+    font-size: 0.95rem;
+}
+
+.modern-form input,
+.modern-form select,
+.modern-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modern-form input:focus,
+.modern-form select:focus,
+.modern-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(47,122,82, 0.2);
+}
+
+/* Botones */
+.btn-primary {
+    width: 100%;
+    background: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.btn-primary:hover { background: var(--color-primario-hover); }
+.btn-primary:active { transform: scale(0.98); }
+
+.form-message {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Grilla de Pendientes (Videos a aprobar) */
+.pending-grid {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-review-card {
+    background: var(--color-gris-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.video-review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.video-review-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: var(--color-texto);
+}
+
+.badge-materia {
+    background: var(--color-fondo-header);
+    color: var(--color-texto-suave);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.autor-text {
+    font-size: 0.85rem;
+    color: var(--color-texto-suave);
+    margin-top: 8px;
+}
+
+.video-container {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    background: #000;
+}
+
+.review-actions { margin-top: 15px; }
+
+.review-actions textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-success, .btn-danger {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+.btn-success { background: #10b981; }
+.btn-danger { background: #ef4444; }
+.btn-success:hover, .btn-danger:hover { opacity: 0.9; }
+
+/* Responsive (Celulares) */
+@media (max-width: 900px) {
+    .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+/* Formularios del panel con el tema activo */
+.dashboard-container input, .dashboard-container select, .dashboard-container textarea {
+    background: var(--color-fondo);
+    color: var(--color-texto);
+}

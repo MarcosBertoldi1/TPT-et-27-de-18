@@ -1,0 +1,545 @@
+/* ==========================================================================
+   ESTILOS BASE: OPTIMIZADO PARA MÓVILES (Pantallas chicas)
+   ========================================================================== */
+
+.encabezado-principal {
+    background-color: var(--color-fondo-header, #e8f6ed);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Contenedor en móvil: distribución simple a los lados */
+.contenedor-header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    padding: 0.8rem 1rem; /* Padding compacto en celulares */
+    box-sizing: border-box;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Transición para el scroll */
+}
+
+.logo-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    text-decoration: none;
+    min-width: 0; /* Permite que el texto se achique en vez de ensanchar la página */
+}
+
+.logo-img-banner {
+    height: 50px; /* Logo chico en celular */
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: height 0.3s ease;
+}
+
+.logo-texto-lineal {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.logo-texto-lineal h1 {
+    font-size: clamp(1rem, 4.4vw, 2rem); /* Se adapta al ancho: legible pero sin desbordar en celulares */
+    font-weight: 700;
+    color: var(--color-texto-header, #14452c);
+    margin: 0;
+    line-height: 1.1;
+    transition: font-size 0.3s ease;
+}
+
+/* EN MÓVILES OCULTAMOS LOS TEXTOS LARGOS: No hay espacio físico */
+.logo-texto-lineal .tagline,
+.logo-texto-lineal .brand-block {
+    display: none; 
+}
+
+/* Botones de accesibilidad en móvil */
+.controles-accesibilidad {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.btn-accesibilidad {
+    background: var(--color-gris-claro, #ffffff);
+    border: 1px solid var(--color-borde, #7fc49c);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--color-texto, #04180d);
+}
+
+/* Menú de navegación en móvil (Scroll horizontal si no entran los links) */
+.navegacion-principal {
+    background-color: var(--color-fondo);
+    border-bottom: 1px solid var(--color-borde-menu);
+    padding: 0 1rem;
+    overflow-x: auto; 
+    white-space: nowrap;
+}
+
+.navegacion-principal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navegacion-principal a {
+    text-decoration: none;
+    color: var(--color-texto-suave);
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.8rem 0; /* Relleno original en móvil */
+    display: inline-block;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease; /* ¡Fundamental para que se achique suavemente! */
+}
+
+.navegacion-principal a:hover,
+.navegacion-principal a.activo {
+    color: var(--color-texto-header, #14452c);
+    border-bottom: 3px solid var(--color-texto-header, #14452c);
+}
+
+.logo-texto-lineal h1,
+.logo-texto-lineal .tagline,
+.logo-texto-lineal .brand-block {
+    /* Estas tres líneas evitan los saltos de renglón al animar */
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    padding-bottom: 6px;
+}
+
+/* ==========================================================================
+   OPTIMIZACIÓN DE ANIMACIONES (Hardware Acceleration)
+   ========================================================================== */
+.contenedor-header,
+.logo-img-banner,
+.logo-texto-lineal h1,
+.logo-texto-lineal .tagline,
+.logo-texto-lineal .brand-block,
+.navegacion-principal a {
+    /* Le avisa al navegador qué propiedades van a animarse para que se prepare */
+    will-change: padding, height, font-size, opacity, max-height;
+    
+    /* Fuerza a la GPU a renderizar el elemento */
+    transform: translateZ(0);
+}
+
+/* ==========================================================================
+   EFECTO SCROLL EN MÓVIL (Se hace apenas más chato aún)
+   ========================================================================== */
+.encabezado-compacto .contenedor-header {
+    padding: 0.4rem 1rem;
+}
+.encabezado-compacto .logo-img-banner {
+    height: 40px;
+}
+.encabezado-compacto .logo-texto-lineal h1 {
+    font-size: 1.1rem;
+}
+
+/* NUEVO: Reduce el espacio entre botones en móviles al hacer scroll */
+.encabezado-compacto .controles-accesibilidad {
+    gap: 0.25rem; 
+}
+
+/* NUEVO: Achica los botones de accesibilidad (letra y relleno) en móviles */
+.encabezado-compacto .btn-accesibilidad {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.75rem;
+    border-radius: 4px; /* Un poquito menos redondeado para mantener la proporción */
+}
+
+
+/* ==========================================================================
+   MEDIA QUERY: PANTALLAS GRANDES (Tablets y Computadoras >= 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+    
+    /* Ajustamos el contenedor para que tenga menos relleno (padding) arriba y abajo */
+    .contenedor-header {
+        position: relative;
+        justify-content: space-between;   /* logo a la izquierda, controles a la derecha */
+        padding: 0.8rem 2rem;
+    }
+
+    /* Achicamos un poco el logo base */
+    .logo-img-banner {
+        height: 72px;
+    }
+
+    /* Achicamos la tipografía principal */
+    .logo-texto-lineal h1 {
+        font-size: 1.9rem;
+    }
+
+    .logo-texto-lineal .tagline {
+        font-size: 1.2rem; /* Antes era 1.5rem */
+    }
+
+    .logo-texto-lineal .brand-block {
+        font-size: 0.95rem; /* Antes era 1.1rem */
+    }
+
+    /* Subimos un poquito los botones para que queden centrados con la nueva altura */
+    .controles-accesibilidad {
+        top: 1rem; 
+    }
+    .btn-accesibilidad {
+        padding: 0.4rem 0.6rem;
+        font-size: 1rem;
+    }
+
+    .navegacion-principal {
+        padding: 0 2rem;
+    }
+
+    .navegacion-principal a {
+        font-size: 1.05rem;
+        padding: 1rem 0;
+    }
+
+    .contenedor-header {
+        /* Agregá estas dos líneas a tu .contenedor-header */
+        max-width: none;   /* el header ocupa todo el ancho, como en el mockup */
+        margin: 0;
+    }
+
+    .navegacion-principal a {
+        padding: 0.6rem 0; /* Hacemos que la franja blanca de los links sea más angosta */
+    }
+}
+
+
+/* ==========================================================================
+   CABECERA: nombre completo y controles
+   ========================================================================== */
+/* Los controles ya no flotan (antes eran "absolute" desde style.css): quedan a la derecha del flex */
+.controles-accesibilidad {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+}
+
+/* El título puede partirse en dos líneas en lugar de cortarse con "..." */
+.logo-texto-lineal h1 {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+}
+.h1-escuela { font-weight: 600; }
+
+/* Celulares: "Tecnología Para Todos" arriba y "ET N° 27 D.E. 18" abajo, más chico */
+@media (max-width: 600px) {
+    .h1-sep { display: none; }
+    .h1-escuela { display: block; font-size: 0.72em; line-height: 1.2; }
+    .encabezado-compacto .h1-escuela { display: none; }
+}
+
+/* ==========================================================================
+   BOTÓN A+ (tamaño de letra)
+   ========================================================================== */
+.btn-accesibilidad {
+    font-weight: 700;
+    line-height: 1;
+    min-width: 40px;
+    height: 34px;
+}
+.btn-accesibilidad:focus-visible {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 2px;
+}
+/* Se resalta cuando la letra está agrandada */
+.btn-accesibilidad[data-nivel]:not([data-nivel="0"]) {
+    background: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+    border-color: var(--color-primario);
+}
+
+/* ==========================================================================
+   INTERRUPTOR DE MODO OSCURO (luna / sol vectoriales)
+   ========================================================================== */
+.interruptor-tema {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 68px;
+    height: 34px;
+    padding: 0 5px;
+    cursor: pointer;
+    background: transparent;
+    border: 1.5px solid var(--color-texto-header);
+    border-radius: 999px;
+}
+
+.interruptor-icono {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+}
+.interruptor-icono svg { width: 15px; height: 15px; }
+
+.interruptor-perilla {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    border-radius: 50%;
+    background: #fdf3c9;                 /* modo claro: perilla crema sobre el sol */
+    transition: transform 0.25s ease, background-color 0.25s ease;
+    transform: translateX(31px);
+}
+
+.interruptor-luna { color: var(--color-texto-header); }
+.interruptor-sol  { color: #b45309; }
+
+[data-tema="oscuro"] .interruptor-perilla { transform: translateX(0); background: #2f7a52; }
+[data-tema="oscuro"] .interruptor-luna { color: #c9ecd6; }
+[data-tema="oscuro"] .interruptor-sol  { color: #7fc49c; }
+
+.interruptor-tema:focus-visible {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 3px;
+}
+
+/* Header compacto en celular al hacer scroll */
+.encabezado-compacto .interruptor-tema {
+    transform: scale(0.85);
+    transform-origin: right center;
+}
+
+
+/* ==========================================================================
+   MENÚ DE USUARIO (círculo con la inicial del correo)
+   Solo se ve cuando hay una sesión iniciada: <html data-sesion="activa">
+   Sin sesión no aparecen ni el menú, ni el tamaño de letra, ni el tema oscuro.
+   ========================================================================== */
+/* El header queda por encima del menú de navegación para que el panel no se tape */
+.contenedor-header {
+    position: relative;
+    z-index: 5;
+}
+
+.usuario-menu {
+    display: none;
+    position: relative;
+    flex-shrink: 0;
+}
+
+html[data-sesion="activa"] .usuario-menu {
+    display: block;
+}
+
+/* Con sesión iniciada: se saca "Iniciar Sesión" y "Cerrar Sesión" del menú (queda en el círculo) */
+html[data-sesion="activa"] #item-login,
+html[data-sesion="activa"] #item-logout {
+    display: none !important;
+}
+
+.usuario-avatar {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 2px solid var(--color-fondo-header);
+    border-radius: 50%;
+    background-color: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+    font: inherit;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 0 0 1.5px var(--color-primario);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.usuario-avatar:hover {
+    transform: scale(1.06);
+}
+
+.usuario-avatar:focus-visible {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 3px;
+}
+
+.usuario-avatar .inicial::before {
+    content: var(--inicial, "?");
+}
+
+.usuario-avatar--grande {
+    width: 54px;
+    height: 54px;
+    font-size: 1.5rem;
+    cursor: default;
+    flex-shrink: 0;
+}
+
+.usuario-avatar--grande:hover {
+    transform: none;
+}
+
+/* Panel desplegable */
+.usuario-panel {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 10px);
+    width: 330px;
+    max-width: calc(100vw - 2rem);
+    padding: 0.4rem 0;
+    background-color: var(--color-gris-claro);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(4,24,13, 0.2);
+    z-index: 2000;
+}
+
+.usuario-panel[hidden] {
+    display: none;
+}
+
+.usuario-cabecera {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--color-borde-menu);
+}
+
+.usuario-email {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-texto-header);
+    overflow-wrap: anywhere;
+    line-height: 1.3;
+}
+
+.usuario-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.2rem;
+}
+
+.usuario-fila-texto {
+    font-weight: 600;
+}
+
+.usuario-fila-detalle {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-texto-suave);
+    text-transform: capitalize;
+}
+
+.letra-control {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.btn-letra {
+    min-width: 42px;
+    height: 36px;
+    padding: 0 0.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font: inherit;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-letra:hover:not(:disabled) {
+    background-color: var(--color-fondo-header);
+    border-color: var(--color-primario);
+}
+
+.btn-letra:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-letra:focus-visible {
+    outline: 3px solid var(--color-primario);
+    outline-offset: 2px;
+}
+
+.btn-letra--menos {
+    font-size: 0.8rem;
+}
+
+.btn-letra--mas {
+    font-size: 1.15rem;
+}
+
+.usuario-separador {
+    margin: 0.4rem 0;
+    border: none;
+    border-top: 1px solid var(--color-borde-menu);
+}
+
+.usuario-salir {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+    border: none;
+    background: none;
+    color: var(--color-texto);
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.usuario-salir:hover {
+    background-color: var(--color-fondo-header);
+}
+
+.usuario-salir:focus-visible {
+    outline: 3px solid var(--color-primario);
+    outline-offset: -3px;
+}
+
+.usuario-salir svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-texto-suave);
+}
+
+/* Celular y header compacto */
+.encabezado-compacto .usuario-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+}

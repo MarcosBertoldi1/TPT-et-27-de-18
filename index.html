@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnología Para Todos - ET27</title>
+    <meta name="description" content="Plataforma de aprendizaje técnico interactivo de la ET27. De estudiantes para estudiantes.">
+
+    <!-- Sesión, tema y tamaño de letra: se aplican antes de mostrar la página para que no parpadee -->
+    <script>(function(){try{var d=document.documentElement,u=localStorage.getItem('tptUsuario');if(!u)return;d.setAttribute('data-sesion','activa');var c=u.charAt(0).toUpperCase();d.style.setProperty('--inicial','"'+(/[A-Z0-9]/.test(c)?c:'?')+'"');var t=localStorage.getItem('tema');if(t?t==='oscuro':window.matchMedia('(prefers-color-scheme: dark)').matches){d.setAttribute('data-tema','oscuro')}var n=parseInt(localStorage.getItem('tamanoLetra'),10);if(n>0&&n<4){var px=[16,18,20,22][n]+'px';d.style.fontSize=px;d.style.setProperty('--fuente-base',px)}}catch(e){}})();</script>
+    <style>html[data-tema="oscuro"]{background:#04180d;color-scheme:dark}</style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/especialidades.css">
+</head>
+<body>
+
+    <header class="encabezado-principal">
+        <div class="contenedor-header">
+            <a href="index.html" class="logo-banner" aria-label="Inicio - Tecnología Para Todos">
+                <img src="img/logoTPT4.png" alt="Logo TPT" class="logo-img-banner" width="75" height="75">
+                <div class="logo-texto-lineal">
+                    <h1>Tecnología Para Todos<span class="h1-sep"> - </span><span class="h1-escuela">ET N° 27 D.E. 18</span></h1>
+                </div>
+            </a>
+
+            <div class="usuario-menu" id="usuarioMenu">
+                <button class="usuario-avatar" id="btnUsuario" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="usuarioPanel" aria-label="Menú de usuario"><span class="inicial" aria-hidden="true"></span></button>
+                <div class="usuario-panel" id="usuarioPanel" hidden>
+                    <div class="usuario-cabecera">
+                        <span class="usuario-avatar usuario-avatar--grande" aria-hidden="true"><span class="inicial"></span></span>
+                        <strong class="usuario-email" id="usuarioEmail"></strong>
+                    </div>
+                    <div class="usuario-fila">
+                        <span class="usuario-fila-texto">Tamaño de letra<small class="usuario-fila-detalle" id="letraNivel">normal</small></span>
+                        <div class="letra-control">
+                            <button class="btn-letra btn-letra--menos" id="btnLetraMenos" type="button" aria-label="Achicar letra">A&minus;</button>
+                            <button class="btn-letra btn-letra--mas" id="btnLetraMas" type="button" aria-label="Agrandar letra">A+</button>
+                        </div>
+                    </div>
+                    <div class="usuario-fila">
+                        <span class="usuario-fila-texto">Tema oscuro</span>
+                        <button class="interruptor-tema" id="btnTema" type="button" role="switch" aria-checked="false" aria-label="Tema oscuro" title="Tema oscuro"><span class="interruptor-perilla"></span><span class="interruptor-icono interruptor-luna" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg></span><span class="interruptor-icono interruptor-sol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span></button>
+                    </div>
+                    <hr class="usuario-separador">
+                    <button class="usuario-salir" id="btnSalir" type="button">
+                        <span>Cerrar sesión</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="navegacion-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" class="activo" aria-current="page">Inicio</a></li>
+                <li id="nav-materiales"><a href="materiales.html">Materiales</a></li>
+                <li><a href="sobre.html">Sobre el Proyecto</a></li>
+                <li id="item-login"><a href="login.html" id="enlace-auth">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido-principal">
+        <section class="hero-inicio" aria-labelledby="titulo-hero">
+            <div class="hero-texto">
+                <h2 id="titulo-hero">Tecnología Para Todos</h2>
+                <p>Recursos educativos creados por estudiantes y validados por profesores</p>
+                <a href="#materias" class="btn btn-primario">Explorar especialidades</a>
+            </div>
+        </section>
+
+        <section id="materias" class="seccion-especialidades" aria-labelledby="titulo-esp">
+            <h2 id="titulo-esp" class="titulo-seccion">Especialidades</h2>
+            <p class="subtitulo-seccion">Contenido disponible y en crecimiento.</p>
+
+            <div class="grilla-especialidades">
+
+                <a href="quimica.html" class="tarjeta-esp">
+                    <span class="tarjeta-esp-icono"><svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19.8 18.4 14 10.67V6.5l1.35-1.69c.26-.33.03-.81-.39-.81H9.04c-.42 0-.65.48-.39.81L10 6.5v4.17L4.2 18.4c-.49.66-.02 1.6.8 1.6h14c.82 0 1.29-.94.8-1.6z"/></svg></span>
+                    <span class="tarjeta-esp-nombre">Química</span>
+                    <span class="tarjeta-esp-cta">Ver contenido <svg class="ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></span>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>Proyecto <strong>Tecnología Para Todos</strong>. ET27 DE 18.</p>
+        <p>Desarrollado por estudiantes. Validado por Prof. Astesana y Prof. Etkin.</p>
+    </footer>
+
+    <script src="js/header.js"></script>
+    <script type="module">
+        import { auth } from './js/firebase-config.js';
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+        const enlaceAuth = document.getElementById('enlace-auth');
+
+        if (enlaceAuth) {
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    enlaceAuth.textContent = 'Cerrar Sesión';
+                    enlaceAuth.href = '#';
+                    enlaceAuth.onclick = (e) => {
+                        e.preventDefault();
+                        signOut(auth).then(() => {
+                            localStorage.removeItem('rolUsuario');
+                            window.location.reload();
+                        });
+                    };
+                } else {
+                    enlaceAuth.textContent = 'Iniciar Sesión';
+                    enlaceAuth.href = 'login.html';
+                    enlaceAuth.onclick = null;
+                }
+            });
+        }
+    </script>
+    <script type="module" src="js/sesion.js"></script>
+</body>
+</html>

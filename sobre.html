@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre el Proyecto | Tecnología para Todos</title>
+
+    <!-- Sesión, tema y tamaño de letra: se aplican antes de mostrar la página para que no parpadee -->
+    <script>(function(){try{var d=document.documentElement,u=localStorage.getItem('tptUsuario');if(!u)return;d.setAttribute('data-sesion','activa');var c=u.charAt(0).toUpperCase();d.style.setProperty('--inicial','"'+(/[A-Z0-9]/.test(c)?c:'?')+'"');var t=localStorage.getItem('tema');if(t?t==='oscuro':window.matchMedia('(prefers-color-scheme: dark)').matches){d.setAttribute('data-tema','oscuro')}var n=parseInt(localStorage.getItem('tamanoLetra'),10);if(n>0&&n<4){var px=[16,18,20,22][n]+'px';d.style.fontSize=px;d.style.setProperty('--fuente-base',px)}}catch(e){}})();</script>
+    <style>html[data-tema="oscuro"]{background:#000f22;color-scheme:dark}</style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/sobre.css">
+</head>
+<body>
+
+    <header class="encabezado-principal">
+        <div class="contenedor-header">
+            <a href="index.html" class="logo-banner" aria-label="Inicio - Tecnología para Todos">
+                <img src="img/logoTPT4.png" alt="Logo TPT" class="logo-img-banner" width="75" height="75">
+                <div class="logo-texto-lineal">
+                    <h1>Tecnología para todos<span class="h1-sep"> - </span><span class="h1-escuela">ET N° 29 D.E. 6</span></h1>
+                </div>
+            </a>
+            <div class="usuario-menu" id="usuarioMenu">
+                <button class="usuario-avatar" id="btnUsuario" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="usuarioPanel" aria-label="Menú de usuario"><span class="inicial" aria-hidden="true"></span></button>
+                <div class="usuario-panel" id="usuarioPanel" hidden>
+                    <div class="usuario-cabecera">
+                        <span class="usuario-avatar usuario-avatar--grande" aria-hidden="true"><span class="inicial"></span></span>
+                        <strong class="usuario-email" id="usuarioEmail"></strong>
+                    </div>
+                    <div class="usuario-fila">
+                        <span class="usuario-fila-texto">Tamaño de letra<small class="usuario-fila-detalle" id="letraNivel">normal</small></span>
+                        <div class="letra-control">
+                            <button class="btn-letra btn-letra--menos" id="btnLetraMenos" type="button" aria-label="Achicar letra">A&minus;</button>
+                            <button class="btn-letra btn-letra--mas" id="btnLetraMas" type="button" aria-label="Agrandar letra">A+</button>
+                        </div>
+                    </div>
+                    <div class="usuario-fila">
+                        <span class="usuario-fila-texto">Tema oscuro</span>
+                        <button class="interruptor-tema" id="btnTema" type="button" role="switch" aria-checked="false" aria-label="Tema oscuro" title="Tema oscuro"><span class="interruptor-perilla"></span><span class="interruptor-icono interruptor-luna" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor"/></svg></span><span class="interruptor-icono interruptor-sol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span></button>
+                    </div>
+                    <hr class="usuario-separador">
+                    <button class="usuario-salir" id="btnSalir" type="button">
+                        <span>Cerrar sesión</span>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" fill="currentColor"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navegacion-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li id="nav-materiales"><a href="materiales.html">Materiales</a></li>
+                <li><a href="sobre.html" class="activo" aria-current="page">Sobre el Proyecto</a></li>
+                <li id="item-login"><a href="login.html">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="contenido-principal" class="pagina-sobre">
+
+        <div class="contenedor-ancho">
+
+            <div class="contenedor-volver">
+                <a href="index.html" class="btn-volver">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    Volver al Inicio
+                </a>
+            </div>
+
+            <section class="encabezado-seccion">
+                <h2>Sobre el Proyecto</h2>
+                <p class="subtitulo">De una idea de inclusión a una plataforma colaborativa para toda la escuela técnica.</p>
+            </section>
+
+            <section class="seccion-video">
+                <div class="contenedor-iframe">
+                    <iframe referrerpolicy="strict-origin-when-cross-origin" 
+                        src="https://www.canva.com/design/DAHUwbN15BU/Hac5eupcuAOg2_VNkTOJBA/view?embed"
+                        title="Presentación Tecnología Para Todos (TPT) 2026"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </section>
+
+            <section class="seccion-historia">
+                <div class="historia-grid">
+
+                    <div class="bloque-texto">
+                        <h3>Nuestra Historia</h3>
+                        <ul class="historia-lista">
+                        <li class="historia-item">
+                            <span class="historia-icono"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" ><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="currentColor"/></svg></span>
+                            <div>
+                                <span class="etiqueta">2025</span>
+                                <p>El proyecto nació en 2025 con un objetivo claro: favorecer la inclusión de estudiantes de la comunidad sorda en la educación técnica mediante recursos visuales y Lengua de Señas Argentina (LSA). Ese esfuerzo inicial fue reconocido con una Mención en la Feria de Educación, Artes, Ciencias y Tecnología.</p>
+                            </div>
+                        </li>
+                        <li class="historia-item">
+                            <span class="historia-icono"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" ><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="currentColor"/></svg></span>
+                            <div>
+                                <span class="etiqueta">Lo que descubrimos</span>
+                                <p>Sin embargo, al investigar más a fondo y escuchar a la comunidad (incluyendo a la Confederación Argentina de Sordos), descubrimos que la barrera de comprensión técnica afectaba a muchos más alumnos. La alta carga conceptual y la falta de recursos amigables era un problema generalizado.</p>
+                            </div>
+                        </li>
+                        <li class="historia-item">
+                            <span class="historia-icono"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" ><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" fill="currentColor"/></svg></span>
+                            <div>
+                                <span class="etiqueta">2026</span>
+                                <p><strong>Así nació la versión 2026:</strong> Decidimos transformar la iniciativa en una plataforma colaborativa donde el aprendizaje se da entre pares. Porque descubrimos que los conceptos se entienden mejor cuando te los explica un compañero que acaba de superar las mismas dificultades.</p>
+                            </div>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion-equipo">
+                <h3>El Equipo detrás de TPT</h3>
+
+                <div class="grilla-equipo">
+
+                    <div class="tarjeta-equipo">
+                        <span class="equipo-icono"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+                        <h4>Desarrollo y Programación</h4>
+                        <span class="etiqueta">Estudiantes de 5º Año</span>
+                        <ul>
+                            <li>Agustín Meza</li>
+                            <li>Marcos Bertoldi</li>
+                        </ul>
+                        <p class="descripcion-rol">Encargados del análisis, diseño (UI/UX) e implementación del Producto Mínimo Viable aplicando metodologías ágiles (Scrum).</p>
+                    </div>
+
+                    <div class="tarjeta-equipo">
+                        <span class="equipo-icono"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" ><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M10 8.2l6 3.8-6 3.8z" style="fill:var(--color-primario)"/></svg></span>
+                        <h4>Producción de Contenidos</h4>
+                        <span class="etiqueta">Estudiantes de 4º año</span>
+                        <ul>    
+                            <li>Camila Diaz Fonseca</li>
+                            <li>Mia Fernández</li>
+                            <li>Ayelen Salazar</li>
+                            <li>Joel Bustamante</li>
+                            <li>Luciana Rojas</li>
+                            <li>Kiara Falcón</li>
+                        </ul>
+                        <span class="etiqueta">Estudiantes de 5º año</span>
+                        <ul>
+                            <li>Zahira Antonecchia</li>
+                            <li>Lucas Ayala</li>
+                            <li>Rodrigo Montenegro</li>
+                            <li>Marcelo Quispe</li>
+                            <li>Sebastián Molina</li>
+                        </ul>
+                        <p class="descripcion-rol">Creadoras de resúmenes visuales, videos explicativos y mapas conceptuales desde la perspectiva del estudiante.</p>
+                    </div>
+
+                    <div class="tarjeta-equipo">
+                        <span class="equipo-icono"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" ><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" fill="currentColor"/></svg></span>
+                        <h4>Acompañamiento Docente</h4>
+                        <span class="etiqueta">Profesores</span>
+                        <ul>
+                            <li>Prof. José Sebastián Astesana <br><small>(Docente responsable)</small></li>
+                            <li>Prof. Alan Edmundo Etkin <br><small>(Docente tutor de especialidad)</small></li>
+                            <li>Prof. Renzo Viñolo <br><small>(Docente tutor de especialidad)</small></li>
+                            <li>Prof. Federico Artesi <br><small>(Docente tutor de especialidad)</small></li>
+                        </ul>
+                        <p class="descripcion-rol">Responsables de guiar el proyecto, validar pedagógicamente los contenidos y acompañar el proceso de aprendizaje.</p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="pie-pagina">
+        <p>&copy; 2026 Tecnología para Todos - ET29. Validado por docentes.</p>
+    </footer>
+
+    <script src="js/header.js"></script>
+    <script type="module" src="js/sesion.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+/* ==========================================================================
+   LANDING: TARJETAS DE ESPECIALIDAD
+   ========================================================================== */
+.seccion-especialidades {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+}
+
+.seccion-especialidades .titulo-seccion {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-texto);
+    text-align: center;
+}
+
+/* Se centra con 1 o 2 tarjetas y baja de fila cuando hay 4 o más */
+.grilla-especialidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+/* --- Tarjeta con contenido (enlace) --- */
+.tarjeta-esp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    min-height: 300px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(160deg, #2f7a52 0%, #14452c 100%);
+    border: 1px solid #7fc49c;
+    border-radius: 24px;
+    box-shadow: 0 8px 20px rgba(4,24,13, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta-esp:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(4,24,13, 0.28);
+}
+
+.tarjeta-esp:focus-visible {
+    outline: 3px solid #7fc49c;
+    outline-offset: 4px;
+}
+
+/* Círculo con el dibujo vectorial */
+.tarjeta-esp-icono {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #c9ecd6;
+    color: #14452c;            /* color del dibujo */
+    display: grid;
+    place-items: center;
+}
+
+.tarjeta-esp-icono svg {
+    width: 96px;
+    height: 96px;
+}
+
+.tarjeta-esp-nombre {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tarjeta-esp-cta {
+    font-weight: 700;
+}
+
+/* --- Próximamente: fondo claro + borde punteado (se distingue sin depender solo del color) --- */
+.tarjeta-esp--pronto {
+    background: #e8f6ed;
+    color: #14452c;
+    border: 2px dashed #4f9d70;
+    box-shadow: none;
+    cursor: default;
+}
+
+.tarjeta-esp--pronto:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.tarjeta-esp--pronto .tarjeta-esp-icono {
+    background: #ffffff;
+}
+
+.tarjeta-esp--pronto .tarjeta-esp-cta {
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    background: #14452c;
+    color: #ffffff;
+}
+
+/* --- Modo oscuro --- */
+[data-tema="oscuro"] .tarjeta-esp--pronto {
+    background: #14452c;
+    color: #c9ecd6;
+    border-color: #7fc49c;
+}
+[data-tema="oscuro"] .tarjeta-esp--pronto .tarjeta-esp-icono { background: #c9ecd6; }
+[data-tema="oscuro"] .tarjeta-esp--pronto .tarjeta-esp-cta { background: #c9ecd6; color: #04180d; }
+
+@media (max-width: 600px) {
+    .tarjeta-esp { min-height: 240px; }
+    .tarjeta-esp-icono { width: 96px; height: 96px; }
+    .tarjeta-esp-icono svg { width: 78px; height: 78px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tarjeta-esp { transition: none; }
+    .tarjeta-esp:hover { transform: none; }
+}
+
+
+/* ==========================================================================
+   PORTADA (hero) arriba de la elección de especialidades
+   ========================================================================== */
+.hero-inicio {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-fondo-header) 0%, var(--color-fondo) 100%);
+    border: 1px solid var(--color-borde-menu);
+    border-radius: 24px;
+}
+
+.hero-texto h2 {
+    font-size: clamp(2.2rem, 6vw, 3.6rem);
+    line-height: 1.1;
+    color: var(--color-texto-header);
+    margin-bottom: 1rem;
+}
+
+.hero-texto p {
+    font-size: 1.2rem;
+    color: var(--color-texto);
+    margin: 0 auto 1.5rem;
+}
+
+.seccion-especialidades { padding-top: 3rem; }
+
+.seccion-especialidades .subtitulo-seccion {
+    text-align: center;
+    color: var(--color-texto-suave);
+    margin: 0.3rem auto 0;
+}
+
+@media (max-width: 800px) {
+    .hero-inicio { padding: 2rem 1.5rem; }
+}

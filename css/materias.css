@@ -1,0 +1,777 @@
+/* ===================================================
+   HOJA DE ESTILOS PROFESIONAL - APORTAR MATERIAL
+=================================================== */
+
+.upload-page-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.upload-hero {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.upload-badge {
+    background: var(--color-fondo-header);
+    color: var(--color-primario);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.upload-hero h2 {
+    font-size: 2.2rem;
+    color: var(--color-texto);
+    margin: 0 0 10px 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.upload-hero p {
+    color: var(--color-texto-suave);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 620px;
+}
+
+/* Form Card Container */
+.upload-card {
+    background: var(--color-gris-claro);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(226, 232, 240, 0.8);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-texto);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.required-star {
+    color: #ef4444;
+}
+
+/* Responsive Grid for Selectors */
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 640px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Input Fields & Selects Styling */
+.upload-form input[type="text"],
+.upload-form input[type="url"],
+.upload-form select,
+.upload-form textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--color-borde);
+    border-radius: 10px;
+    font-size: 0.98rem;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.upload-form input:hover,
+.upload-form select:hover,
+.upload-form textarea:hover {
+    border-color: var(--color-texto-suave);
+    background-color: var(--color-gris-claro);
+}
+
+.upload-form input:focus,
+.upload-form select:focus,
+.upload-form textarea:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    background-color: var(--color-gris-claro);
+    box-shadow: 0 0 0 4px rgba(47,122,82, 0.2);
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    color: var(--color-texto-suave);
+    position: absolute;
+    left: 14px;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.input-with-icon input {
+    padding-left: 45px !important;
+}
+
+/* YouTube Live Preview Box */
+.youtube-preview-box {
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #1e293b;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.preview-header {
+    background: #1e293b;
+    color: #94a3b8;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 8px 14px;
+}
+
+.preview-iframe-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+}
+
+.preview-iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Submit Button */
+.btn-submit-upload {
+    background: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+    border: none;
+    padding: 14px 24px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 12px rgba(20,69,44, 0.25);
+    margin-top: 10px;
+}
+
+.btn-submit-upload:hover {
+    background: var(--color-primario-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(20,69,44, 0.35);
+}
+
+.btn-submit-upload:active {
+    transform: translateY(0);
+}
+
+.form-feedback-msg {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ==========================================================================
+   ESTILOS DE PÁGINAS DE MATERIAS Y TEMAS (restaurados)
+   Estas reglas se habían perdido al reescribir este archivo en el commit
+   a34fedc (panel docente). Las usan mat-*.html, intro*.html y las páginas
+   de cada tema (video + sidebar).
+   ========================================================================== */
+
+/* ========================================================
+   ESTILOS ESPECÍFICOS: PÁGINAS DE MATERIAS Y TEMAS
+   ======================================================== */
+
+/* Contenedor general para dar respiro lateral */
+.contenedor-pagina:not(.upload-page-container) {
+    padding: 2rem;
+    width: 100%; /* Ahora sí, ocupa todo el ancho de la pantalla */
+    margin: 0 auto;
+}
+
+.contenedor-pagina:not(.upload-page-container) p {
+    max-width: 800px; /* Limita la lectura a un ancho cómodo */
+}
+
+/* ========================================================
+   MIGAS DE PAN (Breadcrumbs)
+   ======================================================== */
+.migas-de-pan {
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.migas-de-pan ol {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.migas-de-pan li {
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-texto);
+}
+
+.migas-de-pan li:not(:last-child)::after {
+    content: "›"; /* Flecha separadora */
+    margin-left: 0.5rem;
+    color: var(--color-borde);
+    font-weight: bold;
+}
+
+.migas-de-pan a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.migas-de-pan a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================================
+   CABECERA DE LA MATERIA
+   ======================================================== */
+.cabecera-materia {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-borde);
+}
+
+.titulo-materia-icono {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.icono-grande {
+    font-size: 3.5rem;
+    background-color: var(--color-gris-claro);
+    padding: 1rem;
+    border-radius: 16px;
+    border: 2px solid var(--color-borde);
+}
+
+.titulo-materia-icono h1 {
+    font-size: 2rem;
+    color: var(--color-primario);
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+}
+
+.titulo-materia-icono p {
+    color: var(--color-texto-suave);
+    font-size: 1.1rem;
+}
+
+/* ========================================================
+   BOTÓN SECUNDARIO (Con borde)
+   ======================================================== */
+.btn-secundario {
+    background-color: transparent;
+    color: var(--color-primario);
+    border: 2px solid var(--color-primario);
+    margin-top: auto;
+    width: 100%;
+}
+
+.btn-secundario:hover {
+    background-color: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+}
+
+/* ========================================================
+   BANNER COMUNIDAD
+   ======================================================== */
+.banner-comunidad {
+    background-color: #FFF8E1; /* Amarillo suave/cálido */
+    border: 1px solid #FFE082;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #5D4037;
+}
+
+.banner-comunidad .icono-banner {
+    font-size: 2rem;
+}
+
+/* ========================================================
+   ADAPTACIÓN A CELULARES (Media Queries)
+   ======================================================== */
+@media (max-width: 600px) {
+    .titulo-materia-icono {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .banner-comunidad {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ========================================================
+   LISTA DE RECURSOS (Pantalla Temas Ej: CPU)
+   ======================================================== */
+.instruccion-recurso {
+    margin-bottom: 1.5rem;
+    color: var(--color-texto-suave);
+    font-size: 1.1rem;
+}
+
+.lista-recursos {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tarjeta-recurso {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-gris-claro);
+    border: 2px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-decoration: none;
+    color: var(--color-texto);
+    transition: all 0.2s ease;
+}
+
+.tarjeta-recurso:hover {
+    border-color: var(--color-primario);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+}
+
+.recurso-icono {
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+    background-color: var(--color-gris-claro);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    flex-shrink: 0; /* Evita que el icono se achique */
+}
+
+.recurso-texto {
+    flex-grow: 1; /* Ocupa todo el espacio disponible empujando la flecha al final */
+}
+
+.recurso-texto h3 {
+    margin-bottom: 0.2rem;
+    font-size: 1.2rem;
+    color: var(--color-primario);
+}
+
+.recurso-texto p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-texto-suave);
+}
+
+.recurso-flecha {
+    font-size: 2rem;
+    color: var(--color-borde);
+    font-weight: bold;
+    padding-left: 1rem;
+}
+
+.tarjeta-recurso:hover .recurso-flecha {
+    color: var(--color-primario);
+}
+
+/* Ocultar elementos visualmente pero mantenerlos para lectores de pantalla */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ========================================================
+   BANNER PRÓXIMAMENTE (Funcionalidad Futura - Verde)
+   ======================================================== */
+.banner-proximamente {
+    background-color: #E8F5E9; /* Verde muy suave */
+    border: 1px solid #A5D6A7;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #2E7D32;
+}
+
+.banner-proximamente .icono-banner {
+    font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+    .banner-proximamente {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* ========================================================
+   PANTALLA DE DETALLE (RECURSO / VIDEO)
+   ======================================================== */
+
+/* Grilla responsive para la pantalla del video */
+.contenedor-recurso {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); /* Por defecto (celular): 1 columna; minmax evita que el contenido ensanche la página */
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+/* En PC, el video ocupa el 66% y el sidebar el 33% */
+@media (min-width: 900px) {
+    .contenedor-recurso {
+        grid-template-columns: 2fr 1fr; 
+        align-items: start;
+    }
+}
+
+.recurso-principal {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Truco CSS para que el video de YouTube sea 100% responsive y no se deforme */
+.contenedor-video {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 estricta */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #000;
+    border: 2px solid var(--color-borde);
+}
+
+.contenedor-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: max-content; /* Para que el botón no ocupe toda la pantalla en PC */
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Sidebar derecho */
+.recurso-sidebar {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tarjeta-info {
+    background-color: var(--color-gris-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.tarjeta-info h3 {
+    font-size: 1.2rem;
+    color: var(--color-primario);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-borde);
+    padding-bottom: 0.5rem;
+}
+
+.tarjeta-info p {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+    margin-bottom: 0.8rem;
+}
+
+/* Sección del PDF */
+.material-descarga {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--color-gris-claro);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-borde);
+}
+
+.icono-pdf {
+    font-size: 2rem;
+}
+
+.info-pdf {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.info-pdf strong {
+    font-size: 0.95rem;
+    color: var(--color-texto);
+}
+
+.info-pdf span {
+    font-size: 0.8rem;
+    color: var(--color-texto-suave);
+}
+
+.btn-chico {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    min-height: auto;
+    border-radius: 6px;
+}
+
+/* Enlace "Saltar al contenido": oculto hasta que recibe foco con el teclado (accesibilidad) */
+.saltar-contenido {
+    position: absolute;
+    left: 0.5rem;
+    top: -4rem;
+    z-index: 2000;
+    padding: 0.6rem 1rem;
+    background-color: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.saltar-contenido:focus {
+    top: 0.5rem;
+}
+
+/* =============================================================
+   SECCIÓN DE COMENTARIOS (js/comentarios.js)
+   ============================================================= */
+.seccion-comentarios {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px solid var(--color-borde);
+}
+
+.seccion-comentarios [hidden] {
+    display: none !important;
+}
+
+.comentarios-aviso {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+}
+
+.comentarios-form {
+    margin: 20px 0 30px;
+    padding: 20px;
+    background: var(--color-gris-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+}
+
+.comentarios-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.comentarios-texto {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    font-weight: normal;
+    resize: vertical;
+}
+
+.comentarios-error {
+    margin: 0 0 10px;
+    color: #b91c1c;
+    font-size: 0.9rem;
+}
+
+.comentarios-btn {
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    background: var(--color-primario);
+    color: var(--color-texto-sobre-primario);
+    border: none;
+    border-radius: 4px;
+}
+
+.comentarios-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.comentario-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: var(--color-gris-claro);
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.comentario-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.comentario-autor {
+    color: var(--color-primario);
+    font-size: 1.05em;
+}
+
+.comentario-fecha {
+    color: var(--color-texto-suave);
+    font-size: 0.85em;
+}
+
+.comentario-texto {
+    margin: 0;
+    color: var(--color-texto);
+    line-height: 1.4;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.comentarios-vacio {
+    color: var(--color-texto-suave);
+    font-style: italic;
+}
+
+
+/* ========================================================
+   ÍCONO DE PLAY (vector) EN LOS RECURSOS
+   ======================================================== */
+.recurso-icono .ico {
+    color: var(--color-primario);
+}
+
+/* ========================================================
+   TEMAS QUE TODAVÍA NO ESTÁN DISPONIBLES ("Próximamente")
+   ======================================================== */
+.btn-secundario.btn-deshabilitado {
+    background-color: transparent;
+    color: var(--color-texto-suave);
+    border: 2px dashed var(--color-borde);
+    cursor: default;
+}
+
+.btn-secundario.btn-deshabilitado:hover {
+    background-color: transparent;
+    color: var(--color-texto-suave);
+}
+
+.tarjeta-recurso--pronto {
+    border-style: dashed;
+    opacity: 0.8;
+    cursor: default;
+}
+
+.tarjeta-recurso--pronto:hover {
+    border-color: var(--color-borde);
+    box-shadow: none;
+    transform: none;
+}
+
+.recurso-pronto {
+    flex-shrink: 0;
+    margin-left: 1rem;
+    padding: 0.25rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-borde);
+    background-color: var(--color-fondo-header);
+    color: var(--color-texto-header);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Sección de una materia que todavía no tiene temas cargados */
+.grilla-materias:empty { display: block; }
+.grilla-materias:empty::before { content: "Todavía no hay temas en esta sección. Se van a ir sumando."; opacity: .7; font-style: italic; }
