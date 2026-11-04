@@ -7,6 +7,49 @@ const btnGoogle = document.getElementById('btn-google');
 const mensajeError = document.getElementById('mensaje-error');
 const mensajeErrorRegistro = document.getElementById('mensaje-error-registro');
 
+// --- BANNER DE BIENVENIDA (reemplaza al alert) ---
+// Se arma solo desde acá: trae sus propios estilos, no hace falta tocar HTML ni CSS.
+function mostrarBienvenida(esProfesor, email) {
+    if (!document.getElementById('estilos-bienvenida')) {
+        const estilos = document.createElement('style');
+        estilos.id = 'estilos-bienvenida';
+        estilos.textContent = `
+        .bienvenida { position: fixed; z-index: 10001; left: 50%; transform: translateX(-50%);
+            bottom: calc(env(safe-area-inset-bottom, 0px) + 1rem); width: min(540px, calc(100% - 2rem));
+            display: flex; align-items: flex-start; gap: .8rem; padding: .85rem 1rem;
+            background: var(--color-fondo-header, #e8f6ed); color: var(--color-texto, #04180d);
+            border: 1px solid var(--color-borde, #7fc49c); border-left: 6px solid #2f7a52; border-radius: 12px;
+            box-shadow: 0 10px 28px rgba(4, 24, 13, .25); animation: bienvenida-entra .3s ease; }
+        .bienvenida-icono { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; display: grid; place-items: center;
+            background: #2f7a52; color: #fff; font-weight: 700; line-height: 1; }
+        .bienvenida-titulo { display: block; font-weight: 700; }
+        .bienvenida-detalle { display: block; font-size: .92rem; opacity: .9; margin-top: .15rem; overflow-wrap: anywhere; }
+        @keyframes bienvenida-entra { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+        @media (prefers-reduced-motion: reduce) { .bienvenida { animation: none; } }`;
+        document.head.append(estilos);
+    }
+    const aviso = document.createElement('div');
+    aviso.className = 'bienvenida';
+    aviso.setAttribute('role', 'status');
+
+    const icono = document.createElement('span');
+    icono.className = 'bienvenida-icono';
+    icono.setAttribute('aria-hidden', 'true');
+    icono.textContent = '✓';
+
+    const cuerpo = document.createElement('div');
+    const titulo = document.createElement('span');
+    titulo.className = 'bienvenida-titulo';
+    titulo.textContent = esProfesor ? '¡Bienvenido/a, profesor/a!' : '¡Bienvenido/a!';
+    const detalle = document.createElement('span');
+    detalle.className = 'bienvenida-detalle';
+    detalle.textContent = 'Iniciaste sesión como ' + email + '. Entrando al sitio…';   // textContent: el correo nunca se interpreta como HTML
+    cuerpo.append(titulo, detalle);
+
+    aviso.append(icono, cuerpo);
+    document.body.append(aviso);
+}
+
 // --- FUNCIÓN PARA VERIFICAR EL ROL Y REDIRIGIR ---
 async function verificarRolYRedirigir(user) {
     const emailIngresado = user.email ? user.email.trim().toLowerCase() : '';
@@ -18,13 +61,12 @@ async function verificarRolYRedirigir(user) {
         'upruebadocente@gmail.com'
     ];
 
-    if (correosProfesores.includes(emailIngresado)) {
-        localStorage.setItem('rolUsuario', 'profesor');
-         alert('¡Bienvenido/a Profesor/a!\nCuenta: ' + user.email);
-    } else {
-        localStorage.setItem('rolUsuario', 'alumno');
-         alert('¡Bienvenido/a Alumno/a!\nCuenta: ' + user.email);
-    }
+    const esProfesor = correosProfesores.includes(emailIngresado);
+    localStorage.setItem('rolUsuario', esProfesor ? 'profesor' : 'alumno');
+
+    // Mostramos el banner un instante y después entramos al sitio
+    mostrarBienvenida(esProfesor, user.email);
+    await new Promise((listo) => setTimeout(listo, 1800));
 
     // Redirección relativa: va al index.html que está junto a login.html (funciona en cualquier repositorio)
     window.location.href = new URL('index.html', window.location.href).href;
